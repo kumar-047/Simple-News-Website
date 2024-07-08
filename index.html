@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+    <title>7-DayNews</title>
+
+</head>
+<body>
+	<!-- header -->
+	<header class="header">
+        <nav class="navbar">
+			<button id="themeSwitch" class="theme-switch"></button>
+            <a class="logo" href="./index.html">7-DayNews</a>
+			<div class="header-content">
+				<form class="search-bar" id="search-form">
+					<input type="text" placeholder="Search news..." required>
+					<button type="submit">Search</button>
+				</form>
+	            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#worldaffairs">World Affairs</a></li>
+				<li><a href="#Entertainment">Entertainment</a></li>
+                <li><a href="#business">Business</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#sports">Sports</a></li>
+            </ul>
+			<div class="menu-icon">&#9776;</div>
+		</div>
+        </nav>
+    </header>
+	
+	<!-- main -->
+	 <main class="main">
+    <h1>Latest News</h1>
+    <div id="container"></div>
+	</main>
+	<!-- footer -->
+	<footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>News Categories</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#worldaffairs">World Affairs</a></li>
+                    <li><a href="#sports">Sports</a></li>
+                    <li><a href="#technology">Technology</a></li>
+                    <li><a href="#entertainment">Entertainment</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#advertise">Advertise</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#terms">Terms of Use</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#cookie">Cookie Policy</a></li>
+                    <li><a href="#gdpr">GDPR Compliance</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="#facebook"><img src="./image/facebook.png" class="social-media"></a>
+                    <a href="#twitter"><img src="./image/twitter.png" class="social-media"></a>
+                    <a href="#instagram"><img src="./image/instagram.png" class="social-media" ></a>
+                    <a href="#linkedin"><img src="./image/linkedin.png" class="social-media"></a>
+					<a href="#youtube"><img src="./image/youtube.png" class="social-media"></a>
+                </div>
+                <p>Subscribe to our newsletter</p>
+                <form class="Subscribe-latter">
+                    <input id="email" type="email" placeholder="Enter your email">
+                    <button id="latter" type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+    <div class="bottom-bar">
+        <p>&copy; 2024 News Website. All rights reserved.</p>
+    </div>
+
+<script src="./scripts/loading.js"></script>
+<script src="./scripts/theme.js"></script> 
+</body>
+</html>
