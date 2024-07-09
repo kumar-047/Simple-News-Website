@@ -13,9 +13,11 @@ body {
 .main{
 	flex: 1;
 	padding: 1rem;
+	height: 60%;
 }
 h1 {
-    text-align: center;
+	padding: auto;
+    text-align: left;
 }
 #container {
     display: flex;
