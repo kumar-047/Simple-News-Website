@@ -118,13 +118,13 @@ h1 {
     margin-left: 1rem;
 }
 
-#options {
+.opt {
 	color: #fff;
 	text-decoration: none;
 	transition: color 0.3s ease;
 }
 
-#options:hover {
+.opt:hover {
 	color: #666;
 }
 
