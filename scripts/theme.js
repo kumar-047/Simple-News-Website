@@ -9,6 +9,21 @@
         navLinks.classList.toggle('active');
     });
 
+    // Main-Title
+    const navItems = document.querySelectorAll('.nav-item');
+    const mainTitle = document.getElementById('main-title');//  added h1
+    // Add click event listener to each nav item
+    navItems.forEach(item => {
+        item.addEventListener('click', function(event) {
+            // Prevent default link behavior
+            event.preventDefault();
+            // Get the new title from the data-title attribute
+            const newTitle = this.getAttribute('data-title');
+            // Set the h1 to the new title
+            mainTitle.textContent = newTitle;
+        });
+    });
+
     // Check if a theme preference is stored
     const currentTheme = localStorage.getItem('theme') || 'light';
     setTheme(currentTheme);
