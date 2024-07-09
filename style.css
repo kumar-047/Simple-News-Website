@@ -58,41 +58,40 @@ h1 {
 }
 .navbar {
 	display: flex;
-	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	box-shadow: #333;
 }
-
+.navbar-left {
+	
+    display: flex;
+    align-items: center;
+}
+/* Logo */
 .logo {
-	margin-left: 10px;
+	margin-right: 20px;
+	margin-left: 20px;
 	font-size: 1.5rem;
 	font-weight: bold;
-	text-align: center;
 	color: #fff;
 	text-decoration:none;
 }
 /* search bar */
-.header-content {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin: 0 auto;
+.search-bar-container {
+	flex-grow: 1;
+    max-width: 600px;
+    margin-right: 20px;
 }
-
 .search-bar {
 	
-	width: 100px;
 	display: flex;
 	align-items: center;
 }
 
-.search-bar input[type="text"] {
+#search-form input[type="text"] {
 	padding: 8px;
-	border: none;
-	border-radius: 4px 0 0 4px;
-	width: 200px;
-}
+    border: none;
+    border-radius: 4px 0 0 4px;
+    width: 100%; }
 
 .search-bar button {
 	padding: 8px 15px;
@@ -108,29 +107,25 @@ h1 {
 	background-color: #333;
 }
 
-
+/* nevbar*/
 .nav-links {
-	margin-left: 0px;
-	padding: 0;
 	display: flex;
-	justify-content: space-between;
-	list-style: none;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+.nav-item {
+    margin-left: 1rem;
 }
 
-.nav-links li {
-	margin-right: 3rem;
-	margin-left: 2rem;
-	
-}
-
-.nav-links a {
+.nav-itme a {
 	color: #fff;
 	text-decoration: none;
 	transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-	color: #ddd;
+.nav-item a:hover {
+	color: #666;
 }
 
 .menu-icon {
@@ -142,26 +137,37 @@ h1 {
 
 
 /* Responsive styles */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 678px) {
 	/* nevbar*/
+	.navbar {
+        flex-wrap: wrap;
+    }
+	.navbar-left {
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
 	.nav-links {
 		display: none;
-		flex-direction: column;
-		width: 100%;
-		position: absolute;
-		top: 60px;
-		left: 0;
-		background-color: #333;
-		padding: 1rem;
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
 	}
 
 	.nav-links.active {
 		display: flex;
 	}
 
-	.nav-links li {
+	.nav-item {
 		margin: 0.5rem 0;
 	}
+
+	.search-bar-container {
+        width: 100%;
+        max-width: none;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
 
 	.menu-icon {
 		display: block;
