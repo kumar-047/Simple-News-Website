@@ -16,6 +16,7 @@ class NewsLoader {
         };
         this.currentCategory = 'general';
         this.currentQuery = '';
+        this.searchTimeout = null;
         this.initializeLoader();
         this.initializeSearchHandler();
     }
@@ -34,14 +35,73 @@ class NewsLoader {
     initializeSearchHandler() {
         const searchForm = document.getElementById('search-form');
         const searchInput = searchForm.querySelector('input[type="text"]');
+        const searchButton = searchForm.querySelector('button');
 
-        searchForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const query = searchInput.value.trim();
-            if (query) {
-                this.searchNews(query);
+        // Add loading state to button
+        const setLoadingState = (isLoading) => {
+            searchButton.disabled = isLoading;
+            searchButton.innerHTML = isLoading ? 
+                '<span class="spinner"></span>' : 'Search';
+        };
+
+        // Debounced search for input
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.trim();
+            
+            // Clear previous timeout
+            if (this.searchTimeout) {
+                clearTimeout(this.searchTimeout);
+            }
+
+            // Set new timeout for automatic search
+            if (query.length >= 3) {
+                this.searchTimeout = setTimeout(() => {
+                    this.searchNews(query);
+                }, 500);
             }
         });
+
+        // Form submit handler
+        searchForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const query = searchInput.value.trim();
+            
+            if (query.length < 2) {
+                this.showSearchError('Please enter at least 2 characters');
+                return;
+            }
+
+            setLoadingState(true);
+            await this.searchNews(query);
+            setLoadingState(false);
+        });
+
+        // Clear search results when input is cleared
+        searchInput.addEventListener('search', () => {
+            if (searchInput.value === '') {
+                this.clearSearch();
+            }
+        });
+    }
+
+    showSearchError(message) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'search-error';
+        errorDiv.textContent = message;
+        
+        const container = document.querySelector('.search-bar-container');
+        container.appendChild(errorDiv);
+        
+        setTimeout(() => {
+            errorDiv.remove();
+        }, 3000);
+    }
+
+    clearSearch() {
+        this.currentQuery = '';
+        this.page = 1;
+        document.getElementById('heading').textContent = 'Latest News';
+        this.fetchNews('general');
     }
 
     async searchNews(query) {
@@ -70,7 +130,13 @@ class NewsLoader {
             this.displayNews(data.articles);
             this.page++;
             
+            // Update URL with search query
+            const searchParams = new URLSearchParams(window.location.search);
+            searchParams.set('q', query);
+            window.history.pushState({}, '', `${window.location.pathname}?${searchParams}`);
+            
         } catch (error) {
+            this.showSearchError('Failed to fetch search results');
             this.handleError(error);
         } finally {
             this.loading = false;

@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta charset="UTF-8">
     <meta name="description" content="Stay updated with the latest news from around the world on 7-DayNews. We deliver breaking news, in-depth analysis, and comprehensive coverage on politics, business, technology, entertainment, sports, and more. Trust us for accurate and timely updates, as well as expert opinions and insightful articles. Stay informed, stay ahead .">
     <meta name="keywords" content="latest news , News ">
     <meta name="author" content="kumar-047">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <title>7-DayNews</title>
-
 </head>
 <body>
 	<!-- header -->
@@ -22,7 +20,13 @@
             <div class="nav-links">
                 <div class="search-bar-container">
                     <form class="search-bar" id="search-form" role="search">
-                        <input type="text" placeholder="Search news..." required aria-label="Search news">
+                        <input type="text" 
+                               placeholder="Search news..." 
+                               required 
+                               aria-label="Search news"
+                               minlength="2"
+                               autocomplete="off"
+                               title="Enter at least 2 characters">
                         <button type="submit" aria-label="Submit search">Search</button>
                     </form>
                 </div>
@@ -33,7 +37,10 @@
                 <div class="nav-item"><a class="opt" href="#technology" id="nav-Technology">Technology</a></div>
                 <div class="nav-item"><a class="opt" href="#sports" id="nav-Sports">Sports</a></div>
             </div>
-            <button class="menu-icon" aria-label="Toggle menu">&#9776;</button>
+            <button class="menu-icon" 
+                    aria-label="Toggle navigation menu" 
+                    aria-expanded="false" 
+                    aria-controls="nav-links">☰</button>
         </nav>
     </header>
 	
