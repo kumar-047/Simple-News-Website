@@ -16,14 +16,14 @@
 	<header class="header">
         <nav class="navbar">
             <div class="navbar-left">
-                <button id="themeSwitch" class="theme-switch"></button>
+                <button id="themeSwitch" class="theme-switch" aria-label="Toggle dark mode">🌓</button>
                 <a class="logo" href="./index.html">7-DayNews</a> 
             </div>
             <div class="nav-links">
                 <div class="search-bar-container">
-                    <form class="search-bar" id="search-form">
-                        <input type="text" placeholder="Search news..." required>
-                        <button type="submit">Search</button>
+                    <form class="search-bar" id="search-form" role="search">
+                        <input type="text" placeholder="Search news..." required aria-label="Search news">
+                        <button type="submit" aria-label="Submit search">Search</button>
                     </form>
                 </div>
                 <div class="nav-item"><a class="opt" href="#home" id="nav-home">Home</a></div>
@@ -33,14 +33,15 @@
                 <div class="nav-item"><a class="opt" href="#technology" id="nav-Technology">Technology</a></div>
                 <div class="nav-item"><a class="opt" href="#sports" id="nav-Sports">Sports</a></div>
             </div>
-            <div class="menu-icon">&#9776;</div>
+            <button class="menu-icon" aria-label="Toggle menu">&#9776;</button>
         </nav>
     </header>
 	
 	<!-- main -->
 	 <main class="main">
-    <h1 id="heading">Latest News</h1><hr>
-    <div id="container"></div>
+    <h1 id="heading">Latest News</h1>
+    <hr aria-hidden="true">
+    <div id="container" role="feed" aria-label="News articles"></div>
 	</main>
 	<!-- footer -->
 	<footer class="footer">
